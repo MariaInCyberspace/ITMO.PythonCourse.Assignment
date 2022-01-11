@@ -1,0 +1,15 @@
+{% extends "expenses/base.html" %}
+
+{% block content %}
+    <article>
+        <h2>{{ expense.date|date:'Y-m-d H:i' }}</h2>
+        <h3>{{ expense.name }}</h3>
+        <p>{{ expense.category }}</p>
+        <p>{{ expense.price }}</p>
+        <p>{{ expense.description }}</p>
+    </article>
+    <p>
+    <a href="{% url 'expense-update' expense.id %}">✍️ Edit</a>
+    <a href="{% url 'expense-delete' expense.id %}">⛔ Delete</a>
+    </p>
+{% endblock %}

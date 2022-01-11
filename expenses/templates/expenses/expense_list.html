@@ -1,0 +1,38 @@
+
+
+{% extends "expenses/base.html" %}
+
+{% block content %}
+    <article>
+    <h2 class="mark">{% now "Y-m-d H:i" %}</em></h2>
+    <a href="{% url 'expense-create' %}"><button>Add new entry</button></a>
+    <a href="{% url 'expense-order-by-name' %}"><button>Order by name</button></a>
+    <a href="{% url 'expense-order-by-category' %}"><button>Order by category</button></a>
+    <a href="{% url 'expense-order-by-price' %}"><button>Order by price</button></a>
+    <a href="{% url 'expense-order-by-date' %}"><button>Order by date</button></a>
+    </article>
+
+    {% for expense in expense_list %}
+    <article>
+        <h2 class="{{ expense.date|date:'l' }}">
+            {{ expense.date|date:'Y-m-d H:i' }}
+        </h2>
+        <h3>
+            <a href="{% url 'expense-detail' expense.id %}">
+                {{ expense.name }}
+            </a>
+        </h3>
+        <h3>
+            <a href="{% url 'expense-detail' expense.id %}">
+                {{ expense.category }}
+            </a>
+        </h3>
+        <h3>
+            <a href="{% url 'expense-detail' expense.id %}">
+                {{ expense.price }}
+            </a>
+        </h3>
+    </article>
+    {% endfor %}
+
+{% endblock %}

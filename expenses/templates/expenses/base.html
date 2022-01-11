@@ -1,0 +1,29 @@
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Expenses</title>
+    <link rel="stylesheet" href="{% static 'css/expense_tracker.css' %}">
+</head>
+
+<body>
+    <h1><a href="/">A List Of My Expenses …</a></h1>
+
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li class="message">
+                {{ message }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>
