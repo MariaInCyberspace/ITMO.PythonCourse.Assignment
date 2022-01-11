@@ -12,27 +12,58 @@
     <a href="{% url 'expense-order-by-date' %}"><button>Order by date</button></a>
     </article>
 
-    {% for expense in expense_list %}
     <article>
-        <h2 class="{{ expense.date|date:'l' }}">
-            {{ expense.date|date:'Y-m-d H:i' }}
-        </h2>
-        <h3>
-            <a href="{% url 'expense-detail' expense.id %}">
-                {{ expense.name }}
-            </a>
-        </h3>
-        <h3>
-            <a href="{% url 'expense-detail' expense.id %}">
-                {{ expense.category }}
-            </a>
-        </h3>
-        <h3>
-            <a href="{% url 'expense-detail' expense.id %}">
-                {{ expense.price }}
-            </a>
-        </h3>
+        <table>
+            <thead>
+                 <tr>
+                     <th>
+                        <h2>Date</h2>
+                    </th>
+                    <th>
+                        <h3>Name</h3>
+                    </th>
+                    <th>
+                        <h3>Category</h3>
+                    </th>
+                    <th>
+                        <h3>Price</h3>
+                    </th>
+                 </tr>
+            </thead>
+            <tbody>
+            {% for expense in expense_list %}
+                <tr>
+                    <td>
+                        <h2 class="{{ expense.date|date:'l' }}">
+                            {{ expense.date|date:'Y-m-d H:i' }}
+                        </h2>
+                    </td>
+                    <td>
+                        <h3>
+                            <a href="{% url 'expense-detail' expense.id %}">
+                                {{ expense.name }}
+                            </a>
+                        </h3>
+                    </td>
+                    <td>
+                        <h3>
+                            <a href="{% url 'expense-detail' expense.id %}">
+                                {{ expense.category }}
+                            </a>
+                        </h3>
+                    </td>
+                    <td>
+                        <h3>
+                            <a href="{% url 'expense-detail' expense.id %}">
+                                {{ expense.price }}
+                            </a>
+                        </h3>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
     </article>
-    {% endfor %}
 
 {% endblock %}
