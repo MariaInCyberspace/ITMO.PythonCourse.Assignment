@@ -3,13 +3,13 @@
 {% extends "expenses/base.html" %}
 
 {% block content %}
-    <article>
-    <h2 class="mark">{% now "Y-m-d H:i" %}</em></h2>
-    <a href="{% url 'expense-create' %}"><button>Add new entry</button></a>
-    <a href="{% url 'expense-order-by-name' %}"><button>Order by name</button></a>
-    <a href="{% url 'expense-order-by-category' %}"><button>Order by category</button></a>
-    <a href="{% url 'expense-order-by-price' %}"><button>Order by price</button></a>
-    <a href="{% url 'expense-order-by-date' %}"><button>Order by date</button></a>
+    <article class="header-buttons">
+    <h2 class="mark">{% now "d.m.Y H:i" %}</em></h2>
+    <a href="{% url 'expense-create' %}"><button class="add-button">Add new expense</button></a>
+    <a href="{% url 'expense-order-by-name' %}"><button class="order-button">Order by name</button></a>
+    <a href="{% url 'expense-order-by-category' %}"><button class="order-button">Order by category</button></a>
+    <a href="{% url 'expense-order-by-price' %}"><button class="order-button">Order by price</button></a>
+    <a href="{% url 'expense-order-by-date' %}"><button class="order-button">Order by date</button></a>
     </article>
 
     <article>
@@ -20,13 +20,13 @@
                         <h2>Date</h2>
                     </th>
                     <th>
-                        <h3>Name</h3>
+                        <h2>Name</h2>
                     </th>
                     <th>
-                        <h3>Category</h3>
+                        <h2>Category</h2>
                     </th>
                     <th>
-                        <h3>Price</h3>
+                        <h2>Price</h2>
                     </th>
                  </tr>
             </thead>
@@ -34,27 +34,27 @@
             {% for expense in expense_list %}
                 <tr>
                     <td>
-                        <h2 class="{{ expense.date|date:'l' }}">
-                            {{ expense.date|date:'Y-m-d H:i' }}
-                        </h2>
+                        <h3 class="{{ expense.date|date:'l' }}">
+                            {{ expense.date|date:'d.m.Y' }}
+                        </h3>
                     </td>
                     <td>
                         <h3>
-                            <a href="{% url 'expense-detail' expense.id %}">
+                            <a href="{% url 'expense-detail' expense.id %}" class="custom-link">
                                 {{ expense.name }}
                             </a>
                         </h3>
                     </td>
                     <td>
                         <h3>
-                            <a href="{% url 'expense-detail' expense.id %}">
+                            <a href="{% url 'expense-detail' expense.id %}" class="custom-link">
                                 {{ expense.category }}
                             </a>
                         </h3>
                     </td>
                     <td>
                         <h3>
-                            <a href="{% url 'expense-detail' expense.id %}">
+                            <a href="{% url 'expense-detail' expense.id %}" class="custom-link">
                                 {{ expense.price }}
                             </a>
                         </h3>

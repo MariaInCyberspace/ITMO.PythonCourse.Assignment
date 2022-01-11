@@ -54,12 +54,12 @@ class ExpenseUpdateView(SuccessMessageMixin, UpdateView):
     model = Expense
     form_class = forms.ExpenseForm
     success_message = "Your expense entry was updated!"
-
-    def get_success_url(self):
-        return reverse_lazy(
-            "expense-detail",
-            kwargs={"pk": self.expense.id}
-        )
+    success_url = reverse_lazy("expense-list")
+    # def get_success_url(self):
+    #     return reverse_lazy(
+    #         "expense-detail",
+    #         kwargs={"pk": self.expense.id}
+    #     )
 
 
 class EntryDeleteView(DeleteView):

@@ -12,6 +12,7 @@ body {
 a {
     color: inherit;
 }
+
 a:hover {
     opacity: 0.7;
 }
@@ -36,8 +37,18 @@ h2 {
     background-color: aquamarine;
 }
 
+.header {
+    background: #E8D495;
+    color: #00A388;
+}
+
+.header-buttons {
+    background: #F0E3C0;
+}
+
 .mark {
-    background-color: gainsboro;
+    background-color: inherit;
+    color: #8CBEB2;
 }
 .mark a {
     text-decoration: none;
@@ -99,6 +110,43 @@ input[type="submit"] {
     background-color: lightsalmon;
 }
 
+table {
+    width: 100%;
+}
+
+table thead {
+    background: #00A388;
+}
+
+table thead h2 {
+    background-color: #00A388;
+    color: #F2EBBF;
+}
+
+table tbody {
+    color: #39403B;
+    color: #4C646B;
+}
+
+.custom-link {
+    text-decoration: none;
+}
+
+.order-button {
+    background: inherit;
+    border: none;
+    color: #8CBEB2;
+}
+
+.add-button {
+    border: none;
+    background: inherit;
+    color: #008E74;
+}
+
+.custom-body {
+    background: #FFF3D2;
+}
 /* Messages */
 
 .messages {
@@ -113,3 +161,4 @@ input[type="submit"] {
     text-align: center;
     margin: 1rem 0;
 }
+

@@ -2,11 +2,46 @@
 
 {% block content %}
     <article>
-        <h2>{{ expense.date|date:'Y-m-d H:i' }}</h2>
-        <h3>{{ expense.name }}</h3>
-        <p>{{ expense.category }}</p>
-        <p>{{ expense.price }}</p>
-        <p>{{ expense.description }}</p>
+        <table>
+            <thead>
+                <tr>
+                     <th>
+                        <h2>Date</h2>
+                    </th>
+                    <th>
+                        <h2>Name</h2>
+                    </th>
+                    <th>
+                        <h2>Category</h2>
+                    </th>
+                    <th>
+                        <h2>Price</h2>
+                    </th>
+                    <th>
+                        <h2>Description</h2>
+                    </th>
+                 </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <h2 class="mark">{{ expense.date|date:'d.m.Y' }}</h2>
+                    </td>
+                    <td>
+                        <h3>{{ expense.name }}</h3>
+                    </td>
+                    <td>
+                        <p>{{ expense.category }}</p>
+                    </td>
+                    <td>
+                        <p>{{ expense.price }}</p>
+                    </td>
+                    <td>
+                        <p>{{ expense.description }}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </article>
     <p>
     <a href="{% url 'expense-update' expense.id %}">✍️ Edit</a>

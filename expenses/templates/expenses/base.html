@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="{% static 'css/expense_tracker.css' %}">
 </head>
 
-<body>
-    <h1><a href="/">A List Of My Expenses …</a></h1>
+<body class="custom-body">
+    <div class="header">
+        <h1><a href="/">List Of My Expenses</a></h1>
+    </div>
 
     {% if messages %}
         <ul class="messages">
