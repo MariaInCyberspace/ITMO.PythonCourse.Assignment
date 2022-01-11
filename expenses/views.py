@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 from . import forms
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -55,11 +54,6 @@ class ExpenseUpdateView(SuccessMessageMixin, UpdateView):
     form_class = forms.ExpenseForm
     success_message = "Your expense entry was updated!"
     success_url = reverse_lazy("expense-list")
-    # def get_success_url(self):
-    #     return reverse_lazy(
-    #         "expense-detail",
-    #         kwargs={"pk": self.expense.id}
-    #     )
 
 
 class EntryDeleteView(DeleteView):
