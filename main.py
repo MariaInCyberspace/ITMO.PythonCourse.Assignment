@@ -1,7 +1,7 @@
-# This is a sample Python script.
+# Modify Run configuration to run this app (add parameter 'runserver')
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Alternatively you can activate virtualenv
+# and run 'python manage.py runserver' from terminal
 
 import manage
 
@@ -9,4 +9,3 @@ import manage
 if __name__ == '__main__':
     manage.main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
