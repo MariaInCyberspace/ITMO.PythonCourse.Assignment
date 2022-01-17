@@ -1,42 +1,11 @@
-
-
-{% extends "expenses/base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-    <article class="header-buttons">
-        <h2 class="mark">{% now "d.m.Y H:i" %}</em></h2>
-        <a href="{% url 'expense-create' %}"><button class="add-button">Add new expense</button></a>
-        <a href="{% url 'search' %}"><button class="add-button">Filter</button></a>
-    </article>
-    <table>
-        <thead></thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="{% url 'expense-order-by-name' %}"><button class="order-button">Order by name ▲</button></a>
-                    <a href="{% url 'expense-order-by-name-desc' %}"><button class="order-button">▼</button></a>
-                </td>
-                <td>
-                    <a href="{% url 'expense-order-by-category' %}"><button class="order-button">Order by category ▲</button></a>
-                    <a href="{% url 'expense-order-by-category-desc' %}"><button class="order-button">▼</button></a>
-
-                </td>
-                <td>
-
-                    <a href="{% url 'expense-order-by-price' %}"><button class="order-button">Order by price ▲</button></a>
-                    <a href="{% url 'expense-order-by-price-desc' %}"><button class="order-button">▼</button></a>
-
-                </td>
-                <td>
-                    <a href="{% url 'expense-order-by-date' %}"><button class="order-button">Order by date ▲</button></a>
-                    <a href="{% url 'expense-order-by-date-desc' %}"><button class="order-button">▼</button></a>
-
-                </td>
-
-            </tr>
-        </tbody>
-
-    </table>
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Filter</button>
+  </form>
+  <ul>
 
     <article>
         <table>
@@ -57,7 +26,7 @@
                  </tr>
             </thead>
             <tbody>
-            {% for expense in expense_list %}
+            {% for expense in filter.qs %}
                 <tr>
                     <td>
                         <h3 class="{{ expense.date|date:'l' }}">
@@ -92,4 +61,5 @@
 
     </article>
 
+  </ul>
 {% endblock %}
